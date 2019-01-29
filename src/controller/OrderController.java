@@ -19,7 +19,7 @@ public class OrderController extends HttpServlet {
  
 	OrderService orderService = OrderServiceImpl.getInstance();
 	
-	protected void Service(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 	
 	}

@@ -19,7 +19,7 @@ public class ShipperController extends HttpServlet {
    
 	ShipperService shipperService = ShipperServiceImpl.getInstance();
 	
-	protected void doGet(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 
 	}

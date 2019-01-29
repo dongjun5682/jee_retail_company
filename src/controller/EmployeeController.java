@@ -18,6 +18,17 @@ public class EmployeeController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	
+		String name = request.getParameter("name");
+		String empno = request.getParameter("empno");
+		String manager = request.getParameter("manager");
+		String ssn = request.getParameter("birthday");
+		String content = request.getParameter("content");
+
+
+		request.getRequestDispatcher("/WEB-INF/view/employee/main.jsp").forward(request, response);
+		
+		
 		
 	}
 }

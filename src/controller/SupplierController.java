@@ -19,7 +19,7 @@ public class SupplierController extends HttpServlet {
     
 	SupplierService supplierService =SupplierServiceImpl.getInstance(); 
 	
-	protected void Service(HttpServletRequest request,
+	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		
 	}

@@ -7,5 +7,8 @@
 <title>메인 메뉴</title>
 <link rel="stylesheet" href="${css}/reset.css" />
 <link rel="stylesheet" href="${css}/navi_bar.css" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<link rel="stylesheet" href="${css}/main.css" />
+<link rel="stylesheet" href="${css}/register.css" />
+<link rel="stylesheet" href="${css}/customer_list.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!--CDN 방식-->
 </head>

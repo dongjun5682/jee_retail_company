@@ -1,37 +1,41 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>메인 메뉴</title>
-<link rel="stylesheet" href="<%= application.getContextPath() %>/resources/css/style.css" />
-</head>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<jsp:include page="../home/head.jsp"/>
 <body>
-	<table id="wrapper">
-		<tr>
-			<td colspan="2">
-			<%@ include file="../home/header.jsp" %>
-			</td>
-		</tr>
-		<tr>
-			<td colspan="2">
-			</td>
+	<div class="grid-container">
 
-		</tr>
-		<tr style="height: 300px; width: 300px;">
-			<td>
-			<%@ include file="side-menu.jsp" %>
-			</td>
-			<td>
-				content
-			</td>
-		<tr style="width:100px">
-			<td colspan="2">
-			<%@ include file="../home/footer.jsp" %>
-			</td>
-		</tr>
-	</table>
+		<div class="grid-item" id="item1">
+			<jsp:include page="../home/header.jsp" />
+		</div>
+		<div class="grid-item" id="item2">
+			<c:choose>
+				<c:when test="${compo eq 'pre'}">
+					<jsp:include page="../home/pre-navi-bar.jsp" />
+				</c:when>
+				<c:otherwise>
+					<jsp:include page="../home/post-navi-bar.jsp" />
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="grid-item" id="item3">로그인</div>
+	
+			<jsp:include page="../home/side-menu.jsp" />
+
+		<div class="grid-item" id="item5">
+			<jsp:include page="customer_list.jsp" />
+		</div>
+
+		<div class="grid-item" id="item6">
+			<jsp:include page="../home/footer.jsp" />
+		</div>
+
+	</div>
 
 </body>
 </html>
+
+
+
+
+

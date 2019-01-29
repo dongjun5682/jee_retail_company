@@ -19,7 +19,7 @@ public class CategoryController extends HttpServlet {
        
 	CategoryService categoryService = CategoryServiceImpl.getInstance();
 	
-	protected void Service(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 	
 	}

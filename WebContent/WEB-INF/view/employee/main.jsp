@@ -3,44 +3,39 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="../home/head.jsp"/>
 <body>
-	<table id="wrapper">
-		<tr>
-			<td colspan="2"><jsp:include page="../home/header.jsp" /></td>
-		</tr>
-		<tr>
-			<td colspan="2"></td>
+	<div class="grid-container">
 
-		</tr>
-		<tr style="height: 300px; width: 300px;">
-			<td>
-				<c:if test="${dest eq 'join-form'}">
-					<jsp:include page="side-join.jsp" />
-				</c:if>
-				
-				 <jsp:include page="side-menu.jsp"/>
-				 
-				 </td>
-			<td>
-			 <c:choose>
-					<c:when test="${dest eq 'NONE'}">
+		<div class="grid-item" id="item1">
+			<jsp:include page="../home/header.jsp" />
+		</div>
+		<div class="grid-item" id="item2">
+			<c:choose>
+				<c:when test="${compo eq 'pre'}">
+					<jsp:include page="../home/pre-navi-bar.jsp" />
+				</c:when>
+				<c:otherwise>
+					<jsp:include page="../home/post-navi-bar.jsp" />
+				</c:otherwise>
+			</c:choose>
+		</div>
+		<div class="grid-item" id="item3">로그인</div>
+	
+			<jsp:include page="../home/side-menu.jsp" />
 
-					</c:when>
+		<div class="grid-item" id="item5">
+			<jsp:include page="access.jsp" />
+		</div>
 
-					<c:when test="${dest eq 'member-detail'}">
-						<jsp:include page="member-detail.jsp"/>
-					</c:when>
+		<div class="grid-item" id="item6">
+			<jsp:include page="../home/footer.jsp" />
+		</div>
 
-					<c:when test="${dest eq 'member-update'}">
-						<jsp:include page="member_update2.jsp"/>
-					</c:when>
-				</c:choose>
-			</td>
-		</tr>
-		<tr style="width: 100px">
-			<td colspan="2"><%@ include file="../home/footer.jsp"%>
-			</td>
-		</tr>
-	</table>
+	</div>
 
 </body>
 </html>
+
+
+
+
+

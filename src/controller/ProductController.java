@@ -19,7 +19,7 @@ public class ProductController extends HttpServlet {
        
 	ProductService productService = ProductServiceImpl.getInstance();
 	
-	protected void Service(HttpServletRequest request,
+	protected void service(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
 	}

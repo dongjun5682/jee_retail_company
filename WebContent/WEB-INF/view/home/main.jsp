@@ -19,9 +19,7 @@
 			</c:choose>
 		</div>
 		<div class="grid-item" id="item3">로그인</div>
-	
 			<jsp:include page="side-menu.jsp" />
-
 		<div class="grid-item" id="item5">
 			<c:choose>
 				<c:when test="${compo eq 'pre'}">
@@ -32,17 +30,9 @@
 				</c:otherwise>
 			</c:choose>
 		</div>
-
 		<div class="grid-item" id="item6">
 			<jsp:include page="footer.jsp" />
 		</div>
-
 	</div>
-
 </body>
 </html>
-
-
-
-
-

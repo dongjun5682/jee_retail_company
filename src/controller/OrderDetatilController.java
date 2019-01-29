@@ -16,7 +16,7 @@ public class OrderDetatilController extends HttpServlet {
    
 	OrderDetailService detailService = OrderDetailServiceImpl.getInstance();
 	
-	protected void Service(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
 		
 	}

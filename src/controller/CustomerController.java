@@ -10,15 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 import service.CustomerService;
 import service.CustomerServiceImpl;
 
-@WebServlet("/Customer.do")
+@WebServlet("/customer.do")
 public class CustomerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
  
 	CustomerService customerService = CustomerServiceImpl.getInstance();
 	
-	protected void Service(HttpServletRequest request, 
+	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-	
+		
+		request.getRequestDispatcher("WEB-INF/view/customer/main.jsp").forward(request, response);
 	}
 
 
