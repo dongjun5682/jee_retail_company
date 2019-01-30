@@ -1,16 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Index Page</title>
-
-<link rel="stylesheet" href="resources/css/style.css"/>
-
-</head>
-<body>
+<jsp:include page="top.jsp"/>
 	<div class="container">
 	<h2>회원 전용 시스템</h2>
 			<form id="login-form">
@@ -29,7 +19,7 @@
 				<a id ="join-link" href="#">회원가입</a>
 		</form>
 	</div>
-
+<jsp:include page="bottom.jsp"/>
 	<script>
 	var submit = document.getElementById("btn");
 	submit.addEventListener('click',function(){

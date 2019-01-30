@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import command.Carrier;
+import command.Receiver;
 import domain.EmployeeDTO;
+import enums.Action;
 
 
 @WebServlet("/home.do")
@@ -24,18 +27,19 @@ public class Homecontroller extends HttpServlet {
 		session.setAttribute("ctx", request.getContextPath());
 		session.setAttribute("css", session.getAttribute("ctx")+"/resources/css/");
 		session.setAttribute("js", session.getAttribute("ctx")+"/resources/js/");
-		EmployeeDTO e = (EmployeeDTO)session.getAttribute("admins");		
-		if(e==null){
-			request.setAttribute("compo", "pre");
-			
-		}else{
-			request.setAttribute("compo", "post");
+		if(session.getAttribute("employee")==null) {
+			request.setAttribute("compo", "register");
+		}else {
+			request.setAttribute("compo", "access");
 		}
-		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/home/main.jsp");
-		rd.forward(request, response);	
 		
-		
-		
+		Receiver.init(request, response);
+		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
+		case MOVE:
+			Carrier.forward(request, response);
+			break;
+
+		}
 	}
 
 }

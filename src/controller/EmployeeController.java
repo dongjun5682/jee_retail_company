@@ -1,12 +1,17 @@
 package controller;
 
+
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Carrier;
+import command.Receiver;
+import enums.Action;
 import service.EmployeeService;
 import service.EmployeeServiceImpl;
 
@@ -18,17 +23,13 @@ public class EmployeeController extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		System.out.println("1번컨트롤러-----------------------");
+		Receiver.init(request, response);
+		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
+		case MOVE:
+			Carrier.forward(request, response);
+			break;
+		}
 	
-		String name = request.getParameter("name");
-		String empno = request.getParameter("empno");
-		String manager = request.getParameter("manager");
-		String ssn = request.getParameter("birthday");
-		String content = request.getParameter("content");
-
-
-		request.getRequestDispatcher("/WEB-INF/view/employee/main.jsp").forward(request, response);
-		
-		
-		
 	}
 }

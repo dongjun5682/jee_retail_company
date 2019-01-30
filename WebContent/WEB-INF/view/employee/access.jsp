@@ -1,31 +1,34 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<div style="height:30px">
-				<h2>로그인</h2>
+<jsp:include page="../home/top.jsp"/>
+<link rel="stylesheet" href="${css}/employee/access.css" />
+<div class="grid-item" id="side_menu">
+	<h1><font style="font-size: 25px">사원 접속</font></h1>
+</div>
+<div class="grid-item" id="content">
+<form id="form" name="form" >
+	<div class="grid-container">
+	    <div class="grid-item" id="item_1">사원번호</div>
+	    <div class="grid-item" id="item_2"><input type="text" id="empno" name="empno" ></div>
+	    <div class="grid-item" id="item_3">이 름</div>
+	    <div class="grid-item" id="item_4"><input type="text" id="name" name="name" ></div>
+	    <div class="grid-item" id="item_11"><input type="submit" id="confirm_btn" value='확 인'></div>
+	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
+	    <input type="hidden" name="cmd" value="move" />
+	    <input type="hidden" name="page" value="list" />
 	</div>
-	<form id="access_form">
-	<div class="register-container">
-		<div class="register-item" id="register-item1">사원번호</div>
-		<div class="register-item" id="register-item2">
-			<input type="text" id="empno" name="empno" />
-		</div>
-		<div class="register-item" id="register-item3">이름</div>
-		<div class="register-item" id="register-item4">
-			<input type="text" id="name" name="name" />
-		</div>
-		<div class="register-item" id="register-item11">
-			<input type="submit" id="confirm_btn" value="로그인" />
-		</div>
-		<div class="register-item" id="register-item12">
-			<input type="reset" id="cancel_btn" value="취소" />
-		</div>
-	</div>
-	</form>
+</form>
+</div>
+<jsp:include page="../home/bottom.jsp"/>
 <script>
 $('#confirm_btn').click(function(){
-	$('#access_form').attr('action','${ctx}/customer.do').submit();
+	var empno = $('#empno').val();
+	var name = $('#name').val();
+	$('#form')
+	.attr('action', '${ctx}/customer.do')
+	.submit();
 });
-
-
 </script>
+
+

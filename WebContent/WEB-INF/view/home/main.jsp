@@ -1,38 +1,23 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<jsp:include page="head.jsp"/>
-<body>
-	<div class="grid-container">
-
-		<div class="grid-item" id="item1">
-			<jsp:include page="header.jsp" />
-		</div>
-		<div class="grid-item" id="item2">
-			<c:choose>
-				<c:when test="${compo eq 'pre'}">
-					<jsp:include page="pre-navi-bar.jsp" />
-				</c:when>
-				<c:otherwise>
-					<jsp:include page="post-navi-bar.jsp" />
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<div class="grid-item" id="item3">로그인</div>
-			<jsp:include page="side-menu.jsp" />
-		<div class="grid-item" id="item5">
-			<c:choose>
-				<c:when test="${compo eq 'pre'}">
-					<jsp:include page="../employee/register.jsp" />
-				</c:when>
-				<c:otherwise>
-					<jsp:include page="../employee/access.jsp" />
-				</c:otherwise>
-			</c:choose>
-		</div>
-		<div class="grid-item" id="item6">
-			<jsp:include page="footer.jsp" />
-		</div>
-	</div>
-</body>
-</html>
+    pageEncoding="UTF-8"%>
+<jsp:include page="top.jsp"/>
+<link rel="stylesheet" href="${css}/home/main.css" />
+    <div class="grid-item" id="left">
+    	고객 전용<br /><br />
+    	<a href="#" id="cust_join" >회원가입</a><br />
+    	<a href="#" id="cust_login" >로 그 인</a>
+    </div>
+    <div class="grid-item" id="right">
+    	직원 전용<br /><br />
+    	<a href="#" id="emp_register" >사원등록</a><br />
+    	<a href="#" id="emp_access">접속승인</a>
+    </div>
+<jsp:include page="bottom.jsp"/>  
+<script>
+$('#emp_register').click(function(){
+	location.assign('employee.do?cmd=move&page=register');
+});
+$('#cust_login').click(function(){
+	location.assign('home.do?cmd=move&page=login');
+});
+</script>

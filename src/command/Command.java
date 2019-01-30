@@ -1,19 +1,17 @@
 package command;
 
-import java.io.IOException;
-
-import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import pool.Constant;
+import lombok.Data;
+@Data
+public class Command implements Order{
+	
+	protected HttpServletRequest request;
+	protected String action , domain, page, view;
 
-public class Command {
-
-	public static void move(HttpServletRequest request, HttpServletResponse response, String dir, String page)
-			throws ServletException, IOException {
-		request.getRequestDispatcher(
-				page.equals("index") ? "index" + Constant.JSP : Constant.VIEW + dir + "/" + page + Constant.JSP)
-				.forward(request, response);
+	@Override
+	public void execute() {
+		System.out.println("5번 view setting-----------------------");
+		this.view ="/WEB-INF/view/"+domain+"/"+page+".jsp";
 	}
 }

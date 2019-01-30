@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import command.Carrier;
+import command.Receiver;
+import enums.Action;
 import service.CustomerService;
 import service.CustomerServiceImpl;
 
@@ -18,9 +21,16 @@ public class CustomerController extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-		
-		request.getRequestDispatcher("WEB-INF/view/customer/main.jsp").forward(request, response);
+	
+		Receiver.init(request, response);
+		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
+		case MOVE:
+			Carrier.forward(request, response);
+			break;
+
+		default:
+			break;
+		}
 	}
-
-
 }
+
