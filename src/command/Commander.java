@@ -14,7 +14,12 @@ public class Commander {
 		case MOVE:
 			cmd = new MoveCommand(request,response);
 			break;
-
+		case REGISTER:
+			System.out.println("command~~~~~~~");
+			cmd = new MoveCommand(request,response);
+			break;
+		default:
+			break;
 		}
 		return cmd;
 	}

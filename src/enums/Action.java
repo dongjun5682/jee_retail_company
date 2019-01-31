@@ -1,6 +1,6 @@
 package enums;
 
 public enum Action {
-	MOVE
+	MOVE,REGISTER
 	
 }

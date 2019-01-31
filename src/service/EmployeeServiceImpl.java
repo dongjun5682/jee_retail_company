@@ -18,8 +18,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	@Override
 	public void registEmployee(EmployeeDTO emp) {
-		// TODO Auto-generated method stub
-
+		dao.insertEmployee(emp);
 	}
 
 	@Override

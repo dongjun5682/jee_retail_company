@@ -1,24 +1,18 @@
 package factory;
 
-import pool.Constant;
+import enums.Vender;
 
 public class DatabaseFactory {
-
-	public static Database createDatabase(String vendor) {
-		Database database = null;
+	public static Database createDatabase(Vender v){
+		Database db =null;
 		
-		
-		switch (vendor) {
-		
-		case "oracle":
-			database = new Oracle(
-					Constant.ORALCE_DRIVER,
-					Constant.ORACLE_URL,
-					Constant.USERNAME,
-					Constant.PASSWORD);
+		switch (v) {
+		case ORACLE:
+			db = new Oracle();
+			break;
+		default:
 			break;
 		}
-		return database;
+		return db;
 	}
-	
 }
