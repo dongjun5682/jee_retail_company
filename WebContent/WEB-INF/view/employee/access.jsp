@@ -15,7 +15,7 @@
 	    <div class="grid-item" id="item_4"><input type="text" id="name" name="name" ></div>
 	    <div class="grid-item" id="item_11"><input type="submit" id="confirm_btn" value='확 인'></div>
 	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
-	    <input type="hidden" name="cmd" value="move" />
+	    <input type="hidden" name="cmd" value="access" />
 	    <input type="hidden" name="page" value="list" />
 	</div>
 </form>

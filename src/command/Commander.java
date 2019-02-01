@@ -9,14 +9,12 @@ public class Commander {
 
 	public static Command order(HttpServletRequest request, HttpServletResponse response) {
 		Command cmd = null;
-		System.out.println("3번 커맨드오더-----------------------");
 		switch (Action.valueOf(request.getParameter("cmd").toUpperCase())) {
 		case MOVE:
-			cmd = new MoveCommand(request,response);
+			cmd = new Command(request,response);
 			break;
 		case REGISTER:
-			System.out.println("command~~~~~~~");
-			cmd = new MoveCommand(request,response);
+			cmd = new CreateCommand(request, response);
 			break;
 		default:
 			break;

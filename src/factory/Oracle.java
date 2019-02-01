@@ -6,8 +6,6 @@ import java.sql.DriverManager;
 import enums.Props;
 
 public class Oracle implements Database {
-	private Connection conn;
-	private String driver,url,user,password;
 	
 	@Override
 	public Connection getConnection() {
@@ -15,7 +13,8 @@ public class Oracle implements Database {
 		try {
 			//"oracle.jdbc.OracleDriver"
 			Class.forName(Props.ORA_DRIVER.getValue());
-			conn = DriverManager.getConnection(Props.DB_URL.getValue(),
+			conn = DriverManager.getConnection(
+					Props.DB_URL.getValue(),
 					Props.DB_USER.getValue(),
 					Props.DB_PASS.getValue());
 			

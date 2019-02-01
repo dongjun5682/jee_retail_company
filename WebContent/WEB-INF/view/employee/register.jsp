@@ -29,11 +29,11 @@
 <jsp:include page="../home/bottom.jsp"/>
 <script>
 $('#confirm_btn').click(function(){
-	var empno = $('#empno').val();
 	var name = $('#name').val();
 	var manager = $('#manager').val();
 	var birthday = $('#birthday').val();
-	var desc = $('#desc').val();
+	var photo = $('#photo').val();
+	var desc = $('#notes').val();
 	$('#form')
 	.attr('action', '${ctx}/employee.do')
 	.submit();
