@@ -12,7 +12,7 @@ public interface CustomerDAO {
 	public CustomerDTO selectCustomer(String searchWord);
 	
 	public int countCustomers();
-	public boolean existCustomer(String searchWord);
+	public boolean existCustomer(CustomerDTO cus);
 	
 	public void updateCustomer(CustomerDTO cus);
 	public void deleteCustomer(CustomerDTO cus);

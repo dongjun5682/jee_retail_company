@@ -22,7 +22,7 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public void registCustomer(CustomerDTO cus) {
-		// TODO Auto-generated method stub
+		dao.insertCustomer(cus);
 		
 	}
 
@@ -51,9 +51,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public boolean existCustomer(String searchWord) {
-		// TODO Auto-generated method stub
-		return dao.existCustomer(searchWord);
+	public boolean existCustomer(CustomerDTO cus) {
+		return dao.existCustomer(cus);
 	}
 
 	@Override

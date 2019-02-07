@@ -2,8 +2,7 @@ package controller;
 
 import java.io.IOException;
 
-
-
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,15 +33,8 @@ public class Homecontroller extends HttpServlet {
 			request.setAttribute("compo", "access");
 		}
 		
-		Receiver.init(request, response);
-		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
-		case MOVE:
-			Carrier.forward(request, response);
-			break;
-		default:
-			break;
-
-		}
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/view/home/main.jsp");
+		rd.forward(request, response);
 	}
 
 }

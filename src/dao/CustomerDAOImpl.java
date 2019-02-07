@@ -1,8 +1,14 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.List;
 
 import domain.CustomerDTO;
+import enums.CustomerSQL;
+import enums.Vender;
+import factory.DatabaseFactory;
 
 public class CustomerDAOImpl implements CustomerDAO{
 
@@ -15,8 +21,25 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	@Override
 	public void insertCustomer(CustomerDTO cus) {
-		// TODO Auto-generated method stub
-		
+	try {
+		Connection conn = DatabaseFactory.createDatabase(Vender.ORACLE).getConnection();
+		PreparedStatement pstmt = conn.prepareStatement(CustomerSQL.SIGNUP.toString());
+		pstmt.setString(1,cus.getCustomerId());
+		pstmt.setString(2,cus.getCustomerName());
+		pstmt.setString(3,cus.getPassword());
+		pstmt.setString(4,cus.getAddress());
+		pstmt.setString(5,cus.getCity());
+		pstmt.setString(6,cus.getPostalCode());
+		pstmt.setString(7,cus.getSsn());
+		int rs = pstmt.executeUpdate();
+		if(rs == 1 ){
+			System.out.println("회원 등록 성공");
+		}else{
+			System.out.println("회원 등록 실패");
+		}
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
 	}
 
 	@Override
@@ -44,9 +67,21 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public boolean existCustomer(String searchWord) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existCustomer(CustomerDTO cus) {
+		boolean exist = false;
+		try {
+			Connection conn = DatabaseFactory.createDatabase(Vender.ORACLE).getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(CustomerSQL.SIGNIN.toString());
+			pstmt.setString(1,cus.getCustomerId());
+			pstmt.setString(2,cus.getPassword());
+			if(pstmt.executeQuery().next()){
+				exist = true;
+			}
+		} catch (Exception e) {
+			
+			e.printStackTrace();
+		}
+		return exist;
 	}
 
 	@Override

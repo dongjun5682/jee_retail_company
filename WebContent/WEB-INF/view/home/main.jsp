@@ -14,10 +14,17 @@
     </div>
 <jsp:include page="bottom.jsp"/>  
 <script>
+$('#cust_login').click(function(){
+	location.assign('customer.do?cmd=move&page=signin');
+});
+$('#cust_join').click(function(){
+	location.assign('customer.do?cmd=move&page=signup');
+});
 $('#emp_register').click(function(){
 	location.assign('employee.do?cmd=move&page=register');
 });
-$('#cust_login').click(function(){
-	location.assign('home.do?cmd=move&page=login');
+$('#emp_access').click(function(){
+	location.assign('employee.do?cmd=move&page=access');
 });
+
 </script>

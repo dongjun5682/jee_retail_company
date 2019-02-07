@@ -3,6 +3,8 @@ package dao;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 import domain.EmployeeDTO;
@@ -22,17 +24,11 @@ public class EmployeseDAOImpl implements EmployeeDAO{
 
 	@Override
 	public void insertEmployee(EmployeeDTO emp) {
-		try {
-			
-			String sql = String.format(EmployeeSQL.REGISTER.toString(),
-					emp.getManager(),emp.getName(),emp.getBirthDate(),emp.getPhoto(),emp.getNotes()
-					);
-			
-			System.out.println("입장~~~~~~~");
+		try {	
 			Connection conn = DatabaseFactory
 			.createDatabase(Vender.ORACLE)
 			.getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(sql);
+			PreparedStatement pstmt = conn.prepareStatement(EmployeeSQL.REGISTER.toString());
 			pstmt.setString(1, emp.getManager());
 			pstmt.setString(2, emp.getName());
 			pstmt.setString(3, emp.getBirthDate());
@@ -72,9 +68,22 @@ public class EmployeseDAOImpl implements EmployeeDAO{
 	}
 
 	@Override
-	public boolean existsEmployee(String searchWord) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean existsEmployee(EmployeeDTO emp) {
+		boolean exist = false;
+		try {
+			Connection conn = DatabaseFactory
+					.createDatabase(Vender.ORACLE)
+					.getConnection();
+			PreparedStatement pstmt = conn.prepareStatement(EmployeeSQL.ACCESS.toString());
+			pstmt.setString(1, emp.getEmployeeID());
+			pstmt.setString(2, emp.getName());
+			if(pstmt.executeQuery().next()){
+				exist = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return exist;
 	}
 
 	@Override

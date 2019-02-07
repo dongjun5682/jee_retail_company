@@ -21,16 +21,8 @@ public class CustomerController extends HttpServlet {
 	
 	protected void service(HttpServletRequest request, 
 			HttpServletResponse response) throws ServletException, IOException {
-	
 		Receiver.init(request, response);
-		switch (Action.valueOf(Receiver.cmd.getAction().toUpperCase())) {
-		case MOVE:
-			Carrier.forward(request, response);
-			break;
-
-		default:
-			break;
-		}
+		Carrier.forward(request, response);
 	}
 }
 

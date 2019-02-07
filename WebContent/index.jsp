@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <script>
-location.assign('home.do?cmd=move&page=main');
+location.assign('home.do');
 
 </script>

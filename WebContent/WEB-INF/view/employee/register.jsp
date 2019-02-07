@@ -23,6 +23,8 @@
 	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
 	    <input type="hidden" name="cmd" value="register" />
 	    <input type="hidden" name="page" value="access" />
+	    
+	    
 	</div>
 </form>
 </div>

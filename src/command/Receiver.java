@@ -9,6 +9,7 @@ public class Receiver {
 	public static void init(HttpServletRequest request, 
 			HttpServletResponse response){
 		cmd = Commander.order(request, response);
+		System.out.println("리시버  내부 : "+ Receiver.cmd.getView());
 	};
 	
 }

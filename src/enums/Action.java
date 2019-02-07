@@ -1,6 +1,6 @@
 package enums;
 
 public enum Action {
-	MOVE,REGISTER
+	MOVE,REGISTER,ACCESS,SIGNUP,SIGNIN
 	
 }

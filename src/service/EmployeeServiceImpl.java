@@ -46,9 +46,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	}
 
 	@Override
-	public boolean existEmployee(String searchWord) {
-		// TODO Auto-generated method stub
-		return dao.existsEmployee(searchWord);
+	public boolean existEmployee(EmployeeDTO emp) {
+		
+		return dao.existsEmployee(emp);
 	}
 
 	@Override

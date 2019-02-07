@@ -12,7 +12,7 @@ public interface CustomerService {
 	public CustomerDTO retrieveCustomer(String searchWord);
 	
 	public int countCustomers();
-	public boolean existCustomer(String searchWord);
+	public boolean existCustomer(CustomerDTO cus);
 	
 	public void modifyCustomer(CustomerDTO cus);
 	public void removeCustomer(CustomerDTO cus);
