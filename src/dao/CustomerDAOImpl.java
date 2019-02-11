@@ -2,11 +2,14 @@ package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import domain.CustomerDTO;
 import enums.CustomerSQL;
+import enums.EmployeeSQL;
 import enums.Vender;
 import factory.DatabaseFactory;
 
@@ -31,6 +34,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 		pstmt.setString(5,cus.getCity());
 		pstmt.setString(6,cus.getPostalCode());
 		pstmt.setString(7,cus.getSsn());
+		pstmt.setString(8,cus.getPhone());
 		int rs = pstmt.executeUpdate();
 		if(rs == 1 ){
 			System.out.println("회원 등록 성공");
@@ -44,8 +48,36 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	@Override
 	public List<CustomerDTO> selectCustomerList() {
-		// TODO Auto-generated method stub
-		return null;
+		List<CustomerDTO> list = new ArrayList<>();
+		try {
+			PreparedStatement pstmt = DatabaseFactory
+			.createDatabase(Vender.ORACLE)
+			.getConnection()
+			.prepareStatement(CustomerSQL.LIST.toString());
+			ResultSet rs = pstmt.executeQuery();
+			CustomerDTO cus = null;
+			while (rs.next()) {
+				cus = new CustomerDTO();
+				cus.setAddress(rs.getString("ADDRESS"));
+				cus.setCity(rs.getString("CITY"));
+				cus.setCustomerId(rs.getString("CUSTOMER_ID"));
+				cus.setCustomerName(rs.getString("CUSTOMER_NAME"));
+				cus.setPassword(rs.getString("PASSWORD"));
+				cus.setPhone(rs.getString("PHONE"));
+				cus.setPhoto(rs.getString("PHOTO"));
+				cus.setPostalCode(rs.getString("POSTAL_CODE"));
+				cus.setSsn(rs.getString("SSN"));
+				list.add(cus);
+	
+			}
+		
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 
 	@Override
@@ -55,9 +87,31 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public CustomerDTO selectCustomer(String searchWord) {
-		// TODO Auto-generated method stub
-		return null;
+	public CustomerDTO selectCustomer(CustomerDTO cus) {
+		CustomerDTO temp = null;
+		try {
+			PreparedStatement pstmt = DatabaseFactory
+			.createDatabase(Vender.ORACLE)
+			.getConnection()
+			.prepareStatement(CustomerSQL.SIGNIN.toString());
+			pstmt.setString(1,cus.getCustomerId());
+			pstmt.setString(2,cus.getPassword());
+			ResultSet rs = pstmt.executeQuery();
+			if(rs.next()){
+				temp = new CustomerDTO();
+				temp.setAddress(rs.getString("ADDRESS"));
+				temp.setCity(rs.getString("CITY"));
+				temp.setCustomerId(rs.getString("CUSTOMER_ID"));
+				temp.setCustomerName(rs.getString("CUSTOMER_NAME"));
+				temp.setPassword(rs.getString("PASSWORD"));
+				temp.setPostalCode(rs.getString("POSTAL_CODE"));
+				temp.setSsn(rs.getString("SSN"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return temp;
 	}
 
 	@Override
@@ -67,18 +121,20 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public boolean existCustomer(CustomerDTO cus) {
+	public boolean existCustomerID(CustomerDTO cus) {
 		boolean exist = false;
 		try {
-			Connection conn = DatabaseFactory.createDatabase(Vender.ORACLE).getConnection();
-			PreparedStatement pstmt = conn.prepareStatement(CustomerSQL.SIGNIN.toString());
+			PreparedStatement pstmt = DatabaseFactory
+			.createDatabase(Vender.ORACLE)
+			.getConnection()
+			.prepareStatement(CustomerSQL.SIGNIN.toString());
 			pstmt.setString(1,cus.getCustomerId());
 			pstmt.setString(2,cus.getPassword());
 			if(pstmt.executeQuery().next()){
 				exist = true;
 			}
-		} catch (Exception e) {
-			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return exist;

@@ -28,7 +28,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public List<CustomerDTO> bringCustomerList() {
-		// TODO Auto-generated method stub
 		return dao.selectCustomerList();
 	}
 
@@ -39,9 +38,9 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public CustomerDTO retrieveCustomer(String searchWord) {
+	public CustomerDTO retrieveCustomer(CustomerDTO cus) {
 		// TODO Auto-generated method stub
-		return dao.selectCustomer(searchWord);
+		return dao.selectCustomer(cus);
 	}
 
 	@Override
@@ -51,8 +50,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public boolean existCustomer(CustomerDTO cus) {
-		return dao.existCustomer(cus);
+	public boolean existCustomerID(CustomerDTO cus) {
+		return dao.existCustomerID(cus);
 	}
 
 	@Override

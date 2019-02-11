@@ -9,7 +9,7 @@
 }
 #content{
     grid-column-start: 2;
-    grid-column-end: 5;
+    grid-column-end: 7;
 }
 #cust_tab {
   font-family: arial, sans-serif;

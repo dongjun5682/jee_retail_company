@@ -1,18 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:include page="../home/top.jsp"/>
-<link rel="stylesheet" href="${css}/category/category.css" />
-       <div class="grid-item" id="left">
-    	카테고리1<br /><br />
-    	<a href="#" id="" >스마트폰</a><br />
-    </div>
-    <div class="grid-item" id="center">
-    	카테고리2<br /><br />
-    	<a href="#" id="" >선박</a><br />
-    </div>
-	<div class="grid-item" id="right">
-    	카테고리3<br /><br />
-    	<a href="#" id="" >티비</a><br /><br />
+    <div class="row">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img data-src="holder.js/100%x200" alt="100%x200" src="../resources/img/imac.jpg" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+          <div class="caption">
+            <h3 id="thumbnail-label">데스크탑 <a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+            <p>IMAC</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img data-src="holder.js/100%x200" alt="100%x200" src="" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+          <div class="caption">
+            <h3 id="thumbnail-label">노트북<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+            <p>Macbook Pro </p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <img data-src="holder.js/100%x200" alt="100%x200" src="" data-holder-rendered="true" style="height: 200px; width: 100%; display: block;">
+          <div class="caption">
+            <h3 id="thumbnail-label">스마트폰<a class="anchorjs-link" href="#thumbnail-label"><span class="anchorjs-icon"></span></a></h3>
+            <p>IphoneXS</p>
+            <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+          </div>
+        </div>
+      </div>
     </div>
 <jsp:include page="../home/bottom.jsp"/>  
 <script>

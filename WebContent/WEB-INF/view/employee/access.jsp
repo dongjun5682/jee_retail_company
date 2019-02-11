@@ -7,19 +7,28 @@
 	<h1><font style="font-size: 25px">사원 접속</font></h1>
 </div>
 <div class="grid-item" id="content">
-<form id="form" name="form" >
-	<div class="grid-container">
-	    <div class="grid-item" id="item_1">사원번호</div>
-	    <div class="grid-item" id="item_2"><input type="text" id="empno" name="empno" value="1004"></div>
-	    <div class="grid-item" id="item_3">이 름</div>
-	    <div class="grid-item" id="item_4"><input type="text" id="name" name="name" value="서동준"></div>
-	    <div class="grid-item" id="item_11"><input type="submit" id="confirm_btn" value='확 인'></div>
-	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
-	    <input type="hidden" name="cmd" value="access" />
+<div style="height:40px"></div>	    
+<form class="form-horizontal">
+  <div class="form-group">
+    <small class="col-sm-2 control-label">Employee_ID</small>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="empno" name="empno" placeholder="Employee_ID">
+    </div>
+  </div>
+  <div class="form-group">
+    <small class="col-sm-2 control-label">Name</small>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="name" name="name" placeholder="EmployeeName">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">ACCESS</button>
+    </div>
+  </div>
+      <input type="hidden" name="cmd" value="access" />
 	    <input type="hidden" name="dir" value="customer" />
 	    <input type="hidden" name="page" value="list" />
-	    
-	</div>
 </form>
 </div>
 <jsp:include page="../home/bottom.jsp"/>

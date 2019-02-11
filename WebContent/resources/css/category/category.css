@@ -2,7 +2,7 @@
 .grid-container  {
   display: grid;
   grid-gap: 5px; 
-  grid-template-columns: auto auto auto auto auto auto;
+  grid-template-columns: auto ;
   /* background-color: #2196F3;  */
    padding: 5px; 
 }
@@ -38,5 +38,9 @@
 }
 #right {
     grid-column-start: 5;
+    grid-column-end: 7;
+}
+#content {
+    grid-column-start: 2;
     grid-column-end: 7;
 }

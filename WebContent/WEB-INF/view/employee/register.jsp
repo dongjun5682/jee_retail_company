@@ -8,23 +8,39 @@
 <div class="grid-item" id="content">
 <form id="form" name="form" >
 	<div class="grid-container">
-	    
-	    <div class="grid-item" id="item_1">매니저</div>
-	    <div class="grid-item" id="item_2"><input type="text" id="manager" name="manager" ></div>
-	    <div class="grid-item" id="item_3">이 름</div>
-	    <div class="grid-item" id="item_4"><input type="text" id="name" name="name" ></div>
-	    <div class="grid-item" id="item_5">생년월일</div>
-	    <div class="grid-item" id="item_6"><input type="text" id="birthday" name="birthday" ></div>
-	    <div class="grid-item" id="item_7">사진</div>
-	    <div class="grid-item" id="item_8"><input type="text" id="photo" name="photo" ></div>
-	    <div class="grid-item" id="item_9">상 세</div>
-	    <div class="grid-item" id="item_10"><input type="text" id="notes" name="notes" ></div>
-	    <div class="grid-item" id="item_11"><input type="submit" id="confirm_btn" value='확 인'></div>
-	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
+	    <div class="input-group" id="item_2">
+  			<span class="input-group-addon" id="basic-addon1">매니저 </span>
+ 			<input type="text" class="form-control" placeholder="UserID" aria-describedby="sizing-addon1" 
+ 			 id="manager" name="manager">
+		</div>
+		<div class="input-group" id="item_4">
+  			<span class="input-group-addon" id="basic-addon1">이 름</span>
+ 			<input type="text" class="form-control" placeholder="Password" aria-describedby="sizing-addon2"
+ 			id="name" name="name">
+		</div>
+		<div class="input-group" id="item_6">
+  			<span class="input-group-addon" id="basic-addon1">생년월일</span>
+ 			<input type="text" class="form-control" placeholder="UserName" aria-describedby="basic-addon1"
+ 			 id="birthday" name="birthday" >
+		</div>
+		<div class="input-group" id="item_8">
+  			<span class="input-group-addon" id="basic-addon1">사진</span>
+ 			<input type="text" class="form-control" placeholder="SSN" aria-describedby="basic-addon1"
+ 			id="photo" name="photo" >
+		</div>
+		<div class="input-group" id="item_10">
+  			<span class="input-group-addon" id="basic-addon1">상 세</span>
+ 			<input type="text" class="form-control" placeholder="address" aria-describedby="basic-addon1" 
+ 			 id="notes" name="notes">
+		</div>
+		<button type="button" class="btn btn-default btn-lg" id="confirm_btn">
+ 			 <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		</button>
+		<button type="button" class="btn btn-default btn-lg" id="cancel_btn" >
+ 			 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+		</button>
 	    <input type="hidden" name="cmd" value="register" />
 	    <input type="hidden" name="page" value="access" />
-	    
-	    
 	</div>
 </form>
 </div>

@@ -7,21 +7,31 @@
 	<h1><font style="font-size: 25px">회원 로그인</font></h1>
 </div>
 <div class="grid-item" id="content">
-<form id="form" name="form" >
-	<div class="grid-container">
-	    <div class="grid-item" id="item_1">아이디</div>
-	    <div class="grid-item" id="item_2"><input type="text" id="customerId" name="customerId" value="dongjun"></div>
-	    <div class="grid-item" id="item_3">비밀번호</div>
-	    <div class="grid-item" id="item_4"><input type="text" id="password" name="password" value="1"></div>
-	    <div class="grid-item" id="item_11"><input type="submit" id="confirm_btn" value='확 인'></div>
-	    <div class="grid-item" id="item_12"><input type="reset" id="cancel_btn" value='취 소'> </div>
-	    <input type="hidden" name="cmd" value="signin" />
+<div style="height:40px"></div>	    
+<form class="form-horizontal">
+  <div class="form-group">
+    <small class="col-sm-2 control-label">UserID</small>
+    <div class="col-sm-10">
+      <input type="text" class="form-control" id="customerId" name="customerId" placeholder="User Name">
+    </div>
+  </div>
+  <div class="form-group">
+    <small class="col-sm-2 control-label">Password</small>
+    <div class="col-sm-10">
+      <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-10">
+      <button type="submit" class="btn btn-default">Sign in</button>
+    </div>
+  </div>
+     	<input type="hidden" name="cmd" value="signin" />
 	    <input type="hidden" name="dir" value="category" />
 	    <input type="hidden" name="page" value="main" />
-	    
-	</div>
 </form>
 </div>
+
 <jsp:include page="../home/bottom.jsp"/>
 <script>
 $('#confirm_btn').click(function(){

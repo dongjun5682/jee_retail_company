@@ -5,8 +5,11 @@ public @Data class CustomerDTO {
 	private String customerId,
 					customerName,
 					password,
-					address,
+					ssn,
+					photo,
+					phone,
 					city,
-					postalCode,
-					ssn;
+					address,
+					postalCode
+					;
 }
