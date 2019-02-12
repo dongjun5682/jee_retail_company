@@ -1,13 +1,18 @@
 @CHARSET "UTF-8";
 #nav{
     grid-column-start: 1;
-    grid-column-end: 5;
+    grid-column-end: 7;
 }
 #side_menu{
     grid-column-start: 1;
     grid-column-end: 2;
 }
 #content{
+    grid-column-start: 2;
+    grid-column-end: 7;
+    font-size: 15px;
+}
+#footer{
     grid-column-start: 2;
     grid-column-end: 7;
 }

@@ -24,9 +24,9 @@
 	    <th>지번주소</th>
 	    <th>상세주소</th>
 	  </tr>
-	  <c:forEach items="${list}" var="cus">
+	  <c:forEach items="${list}" var="cus" varStatus="status">
 		   <tr>
-		    <td>1</td>
+		    <td>${cus.rnum}</td>
 		    <td>${cus.customerId}</td>
 		    <td>${cus.customerName}</td>
 		    <td>${cus.ssn}</td>
@@ -45,12 +45,31 @@
 	  <div class="pagination">
 	  <a href="#">&laquo;</a>
 	  <a href="#" class="active">1</a>
-	  <a href="#">2</a>
-	  <a href="#">3</a>
-	  <a href="#">4</a>
-	  <a href="#">5</a>
+	  <a href="#" id="page2">2</a>
+	  <a href="#" id="page3">3</a>
+	  <a href="#" id="page4">4</a>
+	  <a href="#" id="page5">5</a>
 	  <a href="#">&raquo;</a>
 	  </div>
 	</div>
 </div>
 <jsp:include page="../home/bottom.jsp"/>
+<script>
+$('#page2').click(function(){
+	alert('페이지2');
+	location.assign('${ctx}/customer.do?cmd=customer_list&page=list&page_num=2&page_size=5');
+});
+$('#page3').click(function(){
+	alert('페이지3');
+	location.assign('${ctx}/customer.do?cmd=customer_list&page=list&page_num=3&page_size=5');
+});
+$('#page4').click(function(){
+	alert('페이지4');
+	location.assign('${ctx}/customer.do?cmd=customer_list&page=list&page_num=4&page_size=5');
+});
+$('#page5').click(function(){
+	alert('페이지5');
+	location.assign('${ctx}/customer.do?cmd=customer_list&page=list&page_num=7&page_size=5');
+});
+
+</script>

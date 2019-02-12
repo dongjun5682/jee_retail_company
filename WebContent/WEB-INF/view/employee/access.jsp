@@ -12,13 +12,13 @@
   <div class="form-group">
     <small class="col-sm-2 control-label">Employee_ID</small>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="empno" name="empno" placeholder="Employee_ID">
+      <input type="text" class="form-control" id="empno" name="empno" placeholder="Employee_ID" value="1065">
     </div>
   </div>
   <div class="form-group">
     <small class="col-sm-2 control-label">Name</small>
     <div class="col-sm-10">
-      <input type="text" class="form-control" id="name" name="name" placeholder="EmployeeName">
+      <input type="text" class="form-control" id="name" name="name" placeholder="EmployeeName" value="김경민">
     </div>
   </div>
   <div class="form-group">

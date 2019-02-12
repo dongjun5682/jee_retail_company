@@ -5,6 +5,7 @@ import java.util.List;
 import dao.CustomerDAO;
 import dao.CustomerDAOImpl;
 import domain.CustomerDTO;
+import pooxy.Pagination;
 
 public class CustomerServiceImpl implements CustomerService {
 
@@ -27,8 +28,8 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<CustomerDTO> bringCustomerList() {
-		return dao.selectCustomerList();
+	public List<CustomerDTO> bringCustomerList(Pagination page) {
+		return dao.selectCustomerList(page);
 	}
 
 	@Override
@@ -45,7 +46,6 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public int countCustomers() {
-		// TODO Auto-generated method stub
 		return dao.countCustomers();
 	}
 

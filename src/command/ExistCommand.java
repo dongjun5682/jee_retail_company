@@ -2,6 +2,7 @@ package command;
 
 import java.util.List;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import domain.CustomerDTO;
 import domain.EmployeeDTO;
 import enums.Action;
+import pooxy.Proxy;
 import service.CustomerServiceImpl;
 import service.EmployeeServiceImpl;
 
@@ -24,9 +26,7 @@ public class ExistCommand extends Command {
 			boolean exist = EmployeeServiceImpl.getInstance().existEmployee(emp);
 			if (exist) {
 				System.out.println("접근 허용");
-				List<CustomerDTO> list = CustomerServiceImpl.getInstance().bringCustomerList();
-				System.out.println("총 고객의 수 : "+ list.size());
-				System.out.println("가장 최근에 가입한 고객명 : "+ list.get((list.size()-1)).getCustomerName());
+				List<CustomerDTO> list = CustomerServiceImpl.getInstance().bringCustomerList(new Proxy().getPage());
 				request.setAttribute("list", list);
 			} else {
 				System.out.println("접근 불가");

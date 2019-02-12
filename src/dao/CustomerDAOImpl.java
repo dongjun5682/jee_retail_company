@@ -1,6 +1,7 @@
 package dao;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -9,9 +10,9 @@ import java.util.List;
 
 import domain.CustomerDTO;
 import enums.CustomerSQL;
-import enums.EmployeeSQL;
 import enums.Vender;
 import factory.DatabaseFactory;
+import pooxy.Pagination;
 
 public class CustomerDAOImpl implements CustomerDAO{
 
@@ -47,17 +48,20 @@ public class CustomerDAOImpl implements CustomerDAO{
 	}
 
 	@Override
-	public List<CustomerDTO> selectCustomerList() {
+	public List<CustomerDTO> selectCustomerList(Pagination page) {
 		List<CustomerDTO> list = new ArrayList<>();
 		try {
 			PreparedStatement pstmt = DatabaseFactory
 			.createDatabase(Vender.ORACLE)
 			.getConnection()
 			.prepareStatement(CustomerSQL.LIST.toString());
+				pstmt.setString(1,page.getEndRow());
+				pstmt.setString(2,page.getStartRow());
 			ResultSet rs = pstmt.executeQuery();
 			CustomerDTO cus = null;
 			while (rs.next()) {
 				cus = new CustomerDTO();
+				cus.setRnum(rs.getString("RNUM"));
 				cus.setAddress(rs.getString("ADDRESS"));
 				cus.setCity(rs.getString("CITY"));
 				cus.setCustomerId(rs.getString("CUSTOMER_ID"));
@@ -68,9 +72,8 @@ public class CustomerDAOImpl implements CustomerDAO{
 				cus.setPostalCode(rs.getString("POSTAL_CODE"));
 				cus.setSsn(rs.getString("SSN"));
 				list.add(cus);
-	
 			}
-		
+			
 			
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
@@ -116,8 +119,21 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	@Override
 	public int countCustomers() {
-		// TODO Auto-generated method stub
-		return 0;
+		int count = 0;
+		try {
+			PreparedStatement pstmt = DatabaseFactory
+					.createDatabase(Vender.ORACLE)
+					.getConnection()
+					.prepareStatement("SELECT COUNT(*) AS COUNT FROM CUSTOMERS");
+			 ResultSet rs = pstmt.executeQuery();
+			 while (rs.next()) {
+				count = Integer.parseInt(rs.getString("count"));
+			}
+			 System.out.println("count 값 : "+ count);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return count;
 	}
 
 	@Override
